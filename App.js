@@ -1,112 +1,83 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import Bubble from './src/screens/Bubble';
+import Login from './src/screens/Login'
+import Home from './src/screens/Home'
+import Splash from './src/screens/Splash';
+import Flex from './src/screens/Flex';
+import Flexexample from './src/screens/Flexexample';
+import Extranal from './src/screens/Extranal';
+import Condition from './src/screens/Condition';
+import Alertexample from './src/screens/Alertexample';
+import List from './src/screens/List';
+import Listexample from './src/screens/Listexample';
+import Stacknavi from './src/screens/Stacknavi';
+import Drawerstack from './src/screens/DrawerStack';
+import Chitties from './src/screens/Chitties';
+import Chittidashboard from './src/screens/Chittidashboard';
+import Onelakh from './src/screens/Onelakh';
+import Twolakh from './src/screens/Onelakh';
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+import Fivelakh from './src/screens/Onelakh';
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
+
+
+function DrawerView() {
+      return (
+            <Drawer.Navigator 
+            // drawerStyle={}
+            //  initialRouteName="Home" 
+            //  drawerPosition='right'
+            //  drawerContentOptions={{
+            //  activeTintColor: 'white',
+            //  inactiveTintColor: 'white',
+            //  itemStyle: { alignItems:'flex-end' },
+            // }}
+            >
+                  <Drawer.Screen name="Flexexample" component={Flexexample}
+                        options={{ headerShown: false }} />
+            </Drawer.Navigator>
+      );
+
+}
+
+function App() {
+      return (
+            <NavigationContainer>
+                  <Stack.Navigator>
+                        <Stack.Screen name="Chitties" component={Chitties} options={{ headerShown: false }} />
+                        <Stack.Screen name="Chittidashboard" component={Chittidashboard} options={{ headerShown: false }} />
+                        <Stack.Screen name="Onelakh" component={Onelakh} />
+                        <Stack.Screen name="Twolakh" component={Twolakh} />
+
+                        <Stack.Screen name="Fivelakh" component={Fivelakh} />
+
+                        <Stack.Screen name="List" component={List} options={{ headerShown: false }} />
+                        <Stack.Screen name="Stacknavi" component={Stacknavi} options={{ headerShown: false }} />
+                        <Stack.Screen name="Listexample" component={Listexample} options={{ headerShown: false }} />
+                        <Stack.Screen name="Alertexample" component={Alertexample} options={{ headerShown: false }} />
+                        <Stack.Screen name="Condition" component={Condition} options={{ headerShown: false }} />
+                        <Stack.Screen name="Flexexample" component={DrawerView} options={{ headerShown: false }} />
+                        <Stack.Screen name="Bubble" component={Bubble} options={{ headerShown: false }} />
+                        <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
+                        <Stack.Screen name="Extranal" component={Extranal} options={{ headerShown: false }} />
+                        <Stack.Screen name="Flex" component={Flex} />
+                        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+                        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+                  </Stack.Navigator>
+            </NavigationContainer>
+
+
+      )
+}
 export default App;
