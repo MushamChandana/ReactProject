@@ -55,8 +55,10 @@ function App() {
       return (
             <NavigationContainer>
                   <Stack.Navigator>
-                        <Stack.Screen name="Chitties" component={Chitties} options={{ headerShown: false }} />
-                        <Stack.Screen name="Chittidashboard" component={Chittidashboard} options={{ headerShown: false }} />
+                        <Stack.Screen name="Chitties" component={Chitties}
+                         options={{ headerShown: false }} />
+                        <Stack.Screen name="Chittidashboard" component={Chittidashboard} 
+                        options={{ headerShown: false }} />
                         <Stack.Screen name="Onelakh" component={Onelakh} />
                         <Stack.Screen name="Twolakh" component={Twolakh} />
 
